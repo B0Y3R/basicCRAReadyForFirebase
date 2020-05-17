@@ -36,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000/mapz-d6a98/us-central1/api"
+  "proxy": "" // add in api route here from firebase
 }

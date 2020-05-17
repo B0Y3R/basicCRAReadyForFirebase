@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Account from '../components/account';
-import Todo from '../components/todo';
 
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -88,7 +87,8 @@ class home extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;		
+		const { classes } = this.props;	
+		const { firstName, lastName } = this.state; 	
 		if (this.state.uiLoading === true) {
 			return (
 				<div className={classes.root}>
@@ -98,59 +98,7 @@ class home extends Component {
 		} else {
 			return (
 				<div className={classes.root}>
-					<CssBaseline />
-					<AppBar position="fixed" className={classes.appBar}>
-						<Toolbar>
-							<Typography variant="h6" noWrap>
-								TodoApp
-							</Typography>
-						</Toolbar>
-					</AppBar>
-					<Drawer
-						className={classes.drawer}
-						variant="permanent"
-						classes={{
-							paper: classes.drawerPaper
-						}}
-					>
-						<div className={classes.toolbar} />
-						<Divider />
-						<center>
-							<Avatar src={this.state.profilePicture} className={classes.avatar} />
-							<p>
-								{' '}
-								{this.state.firstName} {this.state.lastName}
-							</p>
-						</center>
-						<Divider />
-						<List>
-							<ListItem button key="Todo" onClick={this.loadTodoPage}>
-								<ListItemIcon>
-									{' '}
-									<NotesIcon />{' '}
-								</ListItemIcon>
-								<ListItemText primary="Todo" />
-							</ListItem>
-
-							<ListItem button key="Account" onClick={this.loadAccountPage}>
-								<ListItemIcon>
-									{' '}
-									<AccountBoxIcon />{' '}
-								</ListItemIcon>
-								<ListItemText primary="Account" />
-							</ListItem>
-
-							<ListItem button key="Logout" onClick={this.logoutHandler}>
-								<ListItemIcon>
-									{' '}
-									<ExitToAppIcon />{' '}
-								</ListItemIcon>
-								<ListItemText primary="Logout" />
-							</ListItem>
-						</List>
-					</Drawer>
-
-					<div>{this.state.render ? <Account /> : <Todo />}</div>
+					{ `HELLO ${firstName} ${lastName}`}
 				</div>
 			);
 		}
